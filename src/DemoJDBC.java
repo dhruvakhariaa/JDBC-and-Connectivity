@@ -29,8 +29,8 @@ public class DemoJDBC {
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(query);
             while (rs.next()) {
-                String name = rs.getString("Name");
-                int age = rs.getInt("Age");
+                String name = rs.getString(2);
+                int age = rs.getInt(1);
                 int id = rs.getInt("ID");
                 System.out.println("Student "+id + " name is "+ name + " and his age is " + age);
             }
