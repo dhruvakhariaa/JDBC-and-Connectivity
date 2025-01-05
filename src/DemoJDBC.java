@@ -22,13 +22,15 @@ public class DemoJDBC {
         String uname = "postgres";  //Default username
         String pass = "Dheeraj#1234";
         //The postgresql does not directly take case-sensitive words, that's why use such a syntax
-        String query = "SELECT * FROM \"FirstTable\"";
+        String read = "SELECT * FROM \"FirstTable\"";
 
         try {
             Connection conn = DriverManager.getConnection(url, uname, pass);
             Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery(query);
+            ResultSet rs = st.executeQuery(read); //executeQuery() is used ONLY to fetch data
             while (rs.next()) {
+//              String name = rs.getString("Name");
+//              int age = rs.getInt("Age");
                 String name = rs.getString(2);
                 int age = rs.getInt(1);
                 int id = rs.getInt("ID");
